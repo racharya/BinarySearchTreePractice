@@ -71,4 +71,20 @@ public class BinarySearchTree {
     public int getLeftChildKey(BSTNode anyNode) {
         return anyNode.left.key;
     }
+
+    public int getNumberOfLeaves(){
+        return numberOfLeavesInBST(root);
+    }
+
+    private int numberOfLeavesInBST(BSTNode r) {
+        if(r == null) {
+            return 0;
+        }
+        if(r.left == null || r.right == null){
+            return 1;
+        }
+       else {
+            return numberOfLeavesInBST(r.left) + numberOfLeavesInBST(r.right);
+        }
+    }
 }
