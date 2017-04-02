@@ -17,7 +17,8 @@ public class BinarySearchTree {
 
     /**
      * Inserts a binary search tree node
-     *
+     * This method is direct implementation from one provided in a book.
+     * Introduction to Algorithms 3rd edition. Chapter12, page 294
      * @param k - node to be inserted
      */
     public void treeInsert(BSTNode k) {
@@ -51,11 +52,13 @@ public class BinarySearchTree {
         return size;
     }
 
-    public int getBinarySearchTreeRootNodeKey(){
+    public int getBinarySearchTreeRootNodeKey() {
         return root.key;
     }
+
     /**
      * Getter to return key of right child of a node
+     *
      * @param anyNode - node whose right child's key to access
      * @return - key of a right child of anynode
      */
@@ -65,6 +68,7 @@ public class BinarySearchTree {
 
     /**
      * Getter to return key of left child of a node
+     *
      * @param anyNode - node whose left child's key to access
      * @return - key of a left child of anynode
      */
@@ -72,18 +76,28 @@ public class BinarySearchTree {
         return anyNode.left.key;
     }
 
-    public int getNumberOfLeaves(){
+    /**
+     * Getter to return number of leaves in a tree
+     *
+     * @return - number of leaves
+     */
+    public int getNumberOfLeaves() {
         return numberOfLeavesInBST(root);
     }
 
+    /**
+     * Utility method to count number of leaves in a tree
+     *
+     * @param r - root node to start counting number of leaves of
+     * @return - number of leaves in a tree
+     */
     private int numberOfLeavesInBST(BSTNode r) {
-        if(r == null) {
+        if (r == null) {
             return 0;
         }
-        if(r.left == null || r.right == null){
+        if (r.left == null || r.right == null) {
             return 1;
-        }
-       else {
+        } else {
             return numberOfLeavesInBST(r.left) + numberOfLeavesInBST(r.right);
         }
     }
