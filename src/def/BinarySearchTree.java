@@ -134,4 +134,19 @@ public class BinarySearchTree {
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
+    private BSTNode treeMinimum(BSTNode node) {
+        while(node.left != null){
+            node = node.left;
+        }
+        return node;
+    }
+
+    public int getTreeMinimum(){
+        if(root == null){
+            return -1;
+        }else {
+            return treeMinimum(root).key;
+        }
+    }
+
 }
