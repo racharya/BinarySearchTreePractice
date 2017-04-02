@@ -6,10 +6,12 @@ package def;
  */
 public class BinarySearchTree {
 
-    //def.BinarySearchTree bst;
-    BSTNode root = null;
-    int size;
+    private BSTNode root = null;
+    private int size;
 
+    /**
+     * Constructor
+     */
     public void BinarySearchTree() {
         root = null;
         size = 0;
@@ -19,6 +21,7 @@ public class BinarySearchTree {
      * Inserts a binary search tree node
      * This method is direct implementation from one provided in a book.
      * Introduction to Algorithms 3rd edition. Chapter12, page 294
+     *
      * @param k - node to be inserted
      */
     public void treeInsert(BSTNode k) {
@@ -52,6 +55,11 @@ public class BinarySearchTree {
         return size;
     }
 
+    /**
+     * Getter to return root node key
+     *
+     * @return - root node key
+     */
     public int getBinarySearchTreeRootNodeKey() {
         return root.key;
     }
