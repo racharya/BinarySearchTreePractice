@@ -12,7 +12,7 @@ public class BinarySearchTree {
     /**
      * Constructor
      */
-    public void BinarySearchTree() {
+    public BinarySearchTree() {
         root = null;
         size = 0;
     }
@@ -24,7 +24,7 @@ public class BinarySearchTree {
      *
      * @param k - node to be inserted
      */
-    public void treeInsert(BSTNode k) {
+    public void insert(BSTNode k) {
         BSTNode y = null;
         BSTNode x = root;
         while (x != null) {
@@ -109,4 +109,29 @@ public class BinarySearchTree {
             return numberOfLeavesInBST(r.left) + numberOfLeavesInBST(r.right);
         }
     }
+
+    /**
+     * Getter to return tree height
+     *
+     * @return tree height
+     */
+    public int getTreeHeight() {
+        return bstHeight(root);
+    }
+
+    /**
+     * Utility method to calculate tree height
+     *
+     * @param root - root node of a tree
+     * @return tree height
+     */
+    private int bstHeight(BSTNode root) {
+        if (root == null) {
+            return -1;
+        }
+        int leftHeight = bstHeight(root.left);
+        int rightHeight = bstHeight(root.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
 }
