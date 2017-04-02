@@ -218,4 +218,72 @@ public class BinarySearchTreeTester {
 
         assertEquals(3,bst.getTreeHeight());
     }
+
+    /************************************************************************************/
+    /******************* TEST TREE MINIMUM **********************************************/
+    /************************************************************************************/
+    @Test
+    public void testGetTreeMinimumEmptyTree(){
+        BinarySearchTree bst = new BinarySearchTree();
+        assertEquals(-1,bst.getTreeMinimum());
+    }
+
+    @Test
+    public void testGetTreeMinimumOneNodeTree(){
+        BinarySearchTree bst = new BinarySearchTree();
+        BSTNode item1 = new BSTNode(12);
+        bst.insert(item1);
+        assertEquals(12,bst.getTreeMinimum());
+    }
+
+    @Test
+    public void testGetTreeMinimumTwoNodeTreeLeftChild(){
+        BinarySearchTree bst = new BinarySearchTree();
+        BSTNode item1 = new BSTNode(12);
+        BSTNode item2 = new BSTNode(2);
+        bst.insert(item1);
+        bst.insert(item2);
+        assertEquals(2,bst.getTreeMinimum());
+    }
+
+    @Test
+    public void testGetTreeMinimumTwoNodeTreeRightChild(){
+        BinarySearchTree bst = new BinarySearchTree();
+        BSTNode item1 = new BSTNode(12);
+        BSTNode item2 = new BSTNode(22);
+        bst.insert(item1);
+        bst.insert(item2);
+        assertEquals(12,bst.getTreeMinimum());
+    }
+
+    @Test
+    public void testGetTreeMinimumManyNodeTree(){
+        BinarySearchTree bst = new BinarySearchTree();
+
+        BSTNode root = new BSTNode(12);
+        BSTNode item1 = new BSTNode(18);
+        BSTNode item2 = new BSTNode(15);
+        BSTNode item3 = new BSTNode(2);
+        BSTNode item4 = new BSTNode(17);
+        BSTNode item5 = new BSTNode(5);
+        BSTNode item6 = new BSTNode(4);
+        BSTNode item7 = new BSTNode(1);
+        BSTNode item8 = new BSTNode(6);
+        BSTNode item9 = new BSTNode(14);
+        BSTNode item10 = new BSTNode(22);
+
+        bst.insert(root);
+        bst.insert(item1);
+        bst.insert(item2);
+        bst.insert(item3);
+        bst.insert(item4);
+        bst.insert(item5);
+        bst.insert(item6);
+        bst.insert(item7);
+        bst.insert(item8);
+        bst.insert(item9);
+        bst.insert(item10);
+
+        assertEquals(1,bst.getTreeMinimum());
+    }
 }
