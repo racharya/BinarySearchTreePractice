@@ -57,4 +57,41 @@ public class BinarySearchTreeTester {
         assertEquals(15,bst.getLeftChildKey(item1));
         assertEquals(17,bst.getRightChildKey(item2));
     }
+
+    @Test
+    public void testGetNumberOfLeaves(){
+        BinarySearchTree bst = new BinarySearchTree();
+        BSTNode root = new BSTNode(12);
+        BSTNode item1 = new BSTNode(18);
+        BSTNode item2 = new BSTNode(15);
+        BSTNode item3 = new BSTNode(2);
+        BSTNode item4 = new BSTNode(17);
+        BSTNode item5 = new BSTNode(5);
+        BSTNode item6 = new BSTNode(4);
+
+        bst.treeInsert(root);
+        bst.treeInsert(item1);
+        bst.treeInsert(item2);
+        bst.treeInsert(item3);
+        bst.treeInsert(item4);
+        bst.treeInsert(item5);
+        bst.treeInsert(item6);
+        assertEquals(7,bst.getBinarySearchTreeSize());
+        assertEquals(12, bst.getBinarySearchTreeRootNodeKey());
+        assertEquals(2,bst.getNumberOfLeaves());
+
+    }
+
+    @Test
+    public void testGetNumberOfLeavesOneNode(){
+        BinarySearchTree bst = new BinarySearchTree();
+        BSTNode root = new BSTNode(12);
+        bst.treeInsert(root);
+        assertEquals(1,bst.getBinarySearchTreeSize());
+        assertEquals(12, bst.getBinarySearchTreeRootNodeKey());
+        assertEquals(1,bst.getNumberOfLeaves());
+
+
+
+    }
 }
